@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+
+ <script>
+ //Redirect Page's JS (hosted on Git):
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+var stripe
+ 
+if (urlParams.has('apiKey')) {
+  stripe = Stripe(urlParams.get('apiKey'));
+  if (urlParams.has('sessionID')) {
+   let stripeSessionID = urlParams.get('sessionID')
+   stripe.redirectToCheckout({
+    sessionId: stripeSessionID
+  }).then(function (result) {
+    console.log(result);
+  });
+}
+}else {
+  console.log("Failed, reason : No Params");
+}
+  </script>
+
+  </html>
