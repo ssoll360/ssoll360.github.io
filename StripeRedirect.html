@@ -34,7 +34,10 @@
   <label id="lblError"></label>
 
 <script>
-document.getElementByID('lblError').innerHTML = "Failed, reason : No Params"
+  $(window).load(function() {
+    document.getElementByID('lblError').innerHTML = "Failed, reason : No Params"
+});
+
 </script>
 
 </body>
