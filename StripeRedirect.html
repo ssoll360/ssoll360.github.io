@@ -8,7 +8,6 @@
    const urlParams = new URLSearchParams(queryString);
    var stripe
     
-   document.getElementByID('lblError').innerHTML = "success";
    if (urlParams.has('apiKey')) {
      stripe = Stripe(urlParams.get('apiKey'));
      if (urlParams.has('sessionID')) {
@@ -21,15 +20,10 @@
    }
    }else {
      console.log("Failed, reason : No Params");
-     document.getElementByID('lblError').innerHTML = "Failed, reason : No Params"
+     //document.getElementById('lblError').innerHTML = "Failed, reason : No Params"
    }
      </script>
-     <script>
-      $(window).load(function() {
-        document.getElementByID('lblError').innerHTML = "Failed, reason : No Params"
-    });
-    
-    </script>
+
 
 </head>
 
@@ -40,5 +34,7 @@
   <label id="lblError">Initial Text</label>
 
 </body>
-
+     <script>
+        document.getElementById('lblError').innerHTML = 'Failed, reason : No Params';
+    </script>
 </html>
