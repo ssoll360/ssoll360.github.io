@@ -8,6 +8,7 @@
    const urlParams = new URLSearchParams(queryString);
    var stripe
     
+   document.getElementByID('lblError').innerHTML = "success";
    if (urlParams.has('apiKey')) {
      stripe = Stripe(urlParams.get('apiKey'));
      if (urlParams.has('sessionID')) {
@@ -20,6 +21,7 @@
    }
    }else {
      console.log("Failed, reason : No Params");
+     document.getElementByID('lblError').innerHTML = "Failed, reason : No Params"
    }
      </script>
 
@@ -27,7 +29,9 @@
 
 <body>
   
-  <P>Redirect Page</P>
+  <h1>Stripe Pay Redirect Page</h1>
+  <p></p>
+  <label id="lblError"></label>
 
 
 
