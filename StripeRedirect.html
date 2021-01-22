@@ -24,6 +24,12 @@
      document.getElementByID('lblError').innerHTML = "Failed, reason : No Params"
    }
      </script>
+     <script>
+      $(window).load(function() {
+        document.getElementByID('lblError').innerHTML = "Failed, reason : No Params"
+    });
+    
+    </script>
 
 </head>
 
@@ -32,13 +38,6 @@
   <h1>Stripe Pay Redirect Page</h1>
   <p></p>
   <label id="lblError">Initial Text</label>
-
-<script>
-  $(window).load(function() {
-    document.getElementByID('lblError').innerHTML = "Failed, reason : No Params"
-});
-
-</script>
 
 </body>
 
