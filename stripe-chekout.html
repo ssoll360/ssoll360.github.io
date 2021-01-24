@@ -15,10 +15,10 @@ var stripe = Stripe('pk_live_51HwCDgJ7nzYRWAzaZ4zyeEHaayCFfvFXWHGK7LhATJs75zDc1G
   
     if (urlParams.has('apiKey')) {
     var apikey = urlParams.get('apiKey')
-    if (apikey == "stripecheckout")
+    if (apikey == "4y8M3smFZl769h15qeEV00o3qKBbA0")
     {
     stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1I8cWfJ7nzYRWAza2RmSAjHX', quantity: 1}],
+      lineItems: [{price: 'price_1I8czQJ7nzYRWAza7FfGxLPS', quantity: 1}],
       mode: 'payment',
       /*
        * Do not rely on the redirect to the successUrl for fulfilling
@@ -28,7 +28,7 @@ var stripe = Stripe('pk_live_51HwCDgJ7nzYRWAzaZ4zyeEHaayCFfvFXWHGK7LhATJs75zDc1G
        * https://stripe.com/docs/payments/checkout/fulfill-orders
        */
       successUrl: window.location.protocol + '//natcheztracedoodles.com/success',
-      cancelUrl: window.location.protocol + '//natcheztracedoodles.com/canceled',
+      cancelUrl: window.location.protocol + '//natcheztracedoodles.com',
     })
     .then(function (result) {
       if (result.error) {
