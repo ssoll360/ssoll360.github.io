@@ -22,7 +22,7 @@
    if (urlParams.has('sessionID')) {
     let stripeSessionID = urlParams.get('sessionID')
     stripe.redirectToCheckout({
-     sessionId: stripeSessionID
+     sessionId: stripeSessionID,
    }).then(function (result) {
      console.log(result);
    });
