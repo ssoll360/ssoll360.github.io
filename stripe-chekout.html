@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+
+<body>
+<!-- Load Stripe.js on your website. -->
+<script src="https://js.stripe.com/v3"></script>
+
+<script>
+const queryString = window.location.search;
+ const urlParams = new URLSearchParams(queryString);
+
+var stripe = Stripe('pk_live_51HwCDgJ7nzYRWAzaZ4zyeEHaayCFfvFXWHGK7LhATJs75zDc1GSxroS0oQ2V8HyaL1VY4y8M3smFZl769h15qeEV00o3qKBbA0');
+  
+    if (urlParams.has('apiKey')) {
+    var apikey = urlParams.get('apiKey')
+    if (apikey == "stripecheckout")
+    {
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'price_1I8cWfJ7nzYRWAza2RmSAjHX', quantity: 1}],
+      mode: 'payment',
+      /*
+       * Do not rely on the redirect to the successUrl for fulfilling
+       * purchases, customers may not always reach the success_url after
+       * a successful payment.
+       * Instead use one of the strategies described in
+       * https://stripe.com/docs/payments/checkout/fulfill-orders
+       */
+      successUrl: window.location.protocol + '//natcheztracedoodles.com/success',
+      cancelUrl: window.location.protocol + '//natcheztracedoodles.com/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        /*
+         * If `redirectToCheckout` fails due to a browser or network
+         * error, display the localized error message to your customer.
+         */
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  }
+}
+</script>
+</body>
+</html>
